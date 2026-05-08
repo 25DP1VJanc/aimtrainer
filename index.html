@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="look.css">
+</head>
+<body>
+    <img id="btn" src="target.svg">
+</body>
+<script>
+const btn = document.getElementById("btn");
+
+btn.addEventListener("click", () => {
+
+    const height = window.innerHeight;
+    const width = window.innerWidth;
+
+    const btnWidth = btn.offsetWidth;
+    const btnHeight = btn.offsetHeight;
+
+    let randX = Math.floor(Math.random() * (width - btnWidth));
+    let randY = Math.floor(Math.random() * (height - btnHeight));
+
+    btn.style.transform = `translate(${randX}px, ${randY}px)`;
+
+    let sizechange = Math.floor(Math.random() * 30) + 200;
+
+    btn.style.width = `${sizechange}px`;
+
+    console.log(sizechange);
+    console.log(btn.style.width);
+
+    btn.style.border = "2px solid red";
+});
+</script>
+</html>
