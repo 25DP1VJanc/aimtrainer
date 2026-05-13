@@ -8,9 +8,16 @@
 </head>
 <body>
     <img id="btn" src="target.svg">
+    <div class="pointtext">
+        <p>You have</p>
+        <p id="pointcount">0</p>
+        <p> points!</p>
+    </div>
 </body>
 <script>
 const btn = document.getElementById("btn");
+let points = 0
+let upgrade = 0
 
 btn.addEventListener("click", () => {
 
@@ -19,20 +26,25 @@ btn.addEventListener("click", () => {
 
     const btnWidth = btn.offsetWidth;
     const btnHeight = btn.offsetHeight;
+    const pointdisplay = document.getElementById("pointcount")
 
     let randX = Math.floor(Math.random() * (width - btnWidth));
     let randY = Math.floor(Math.random() * (height - btnHeight));
 
     btn.style.transform = `translate(${randX}px, ${randY}px)`;
 
-    let sizechange = Math.floor(Math.random() * 30) + 200;
+    let sizechange = Math.floor((Math.random() * 200) + 50);
 
     btn.style.width = `${sizechange}px`;
 
     console.log(sizechange);
-    console.log(btn.style.width);
 
-    btn.style.border = "2px solid red";
+    // pointcounter
+    points += 1
+    pointdisplay.innerHTML = points
+
+
+
 });
 </script>
 </html>
